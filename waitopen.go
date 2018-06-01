@@ -72,7 +72,7 @@ func (o *Opener) Wait(options ...Option) bool {
 
 		color.Red("%v\n\n", err.Error())
 
-		if count > o.Retry {
+		if count >= o.Retry {
 			return false
 		}
 
