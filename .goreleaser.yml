@@ -53,7 +53,7 @@ brew:
 
   # Your app's description.
   # Default is empty.
-  description: "Golang cli management tool"
+  description: "Wait until access target URL then open the URL"
 
   # Setting this will prevent goreleaser to actually try to commit the updated
   # formula - instead, the formula file will be stored on the dist folder only,
