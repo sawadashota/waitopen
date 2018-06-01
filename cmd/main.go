@@ -9,7 +9,6 @@ import (
 )
 
 var (
-	urlString string
 	interval  int
 	retry     int
 )
@@ -20,7 +19,6 @@ func main() {
 }
 
 func listenOptions() {
-	rootCmd.Flags().StringVarP(&urlString, "URL", "u", "", "URL")
 	rootCmd.Flags().IntVarP(&interval, "interval", "i", 30, "Interval")
 	rootCmd.Flags().IntVarP(&retry, "retry", "r", 5, "Retry")
 }
@@ -28,7 +26,10 @@ func listenOptions() {
 var rootCmd = &cobra.Command{
 	Use:   "wait-open",
 	Short: "Wait until access then open URL",
+	Args: cobra.ExactArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
+		urlString := args[0]
+
 		if urlString == "" {
 			color.Red("Invalid URL or empty")
 			os.Exit(1)
